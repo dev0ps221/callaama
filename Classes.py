@@ -25,9 +25,22 @@ class StartPage:
         self.starttext_container = Column()
         self.startbutton_container = Column()
 
-    def __init__(self,page):
+    def __init__(self,app):
+        self.app = app
         self.container = Column()
         self.configureControls()
         self.showControls()
         self.update()
  
+
+ class Game :
+
+     def main(self,page:Page)
+        self.page = page
+        self.
+     def start(self):
+        self.game = app(target=self.main)
+        
+
+
+     def __init__(self):
