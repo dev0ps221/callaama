@@ -28,6 +28,7 @@ class StartPage:
     def __init__(self,app):
         self.app = app
         self.container = Column()
+        self.createControls()
         self.configureControls()
         self.showControls()
  
@@ -41,12 +42,24 @@ class Game :
         self.views = {
             'start_menu' : self.start_menu 
         }
+        self.refreshView()
+
+    def start_game(self):
+
+    def end_game(self):
+        
 
     def showView(self):
-        self.views[self.actualview].showOnPage()
+        self.views[self.actualview].addOnPage(self.page)
+
+    def refreshView(self):
+        for view in self.views:
+            self.page.remove(self.views[view]) if self.views[view] in self.page._controls else None
+        self.showView()
 
     def start(self):
         self.game = app(target=self.main)
         
 
-Game()
+game = Game()
+game.start()
