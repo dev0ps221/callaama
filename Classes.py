@@ -20,7 +20,7 @@ class StartPage:
     def addOnPage(self,page):
         page.add(self.container)
         page.update()
-
+ 
     def createControls(self):
         self.starttext_container = Column()
         self.startbutton_container = Column()
@@ -30,17 +30,23 @@ class StartPage:
         self.container = Column()
         self.configureControls()
         self.showControls()
-        self.update()
  
 
- class Game :
+class Game :
 
-     def main(self,page:Page)
+    def main(self,page:Page):
         self.page = page
-        self.
-     def start(self):
+        self.actualview = 'start_menu'
+        self.start_menu = StartPage(self)
+        self.views = {
+            'start_menu' : self.start_menu 
+        }
+
+    def showView(self):
+        self.views[self.actualview].showOnPage()
+
+    def start(self):
         self.game = app(target=self.main)
         
 
-
-     def __init__(self):
+Game()
