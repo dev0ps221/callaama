@@ -11,18 +11,23 @@ class StartPage:
 
     def configureControls(self):
         self.starttext_container.controls.append(self.starttext)
-        self.startbutton_container.controls.append(self.starttext)
+        self.startbutton_container.controls.append(self.startbutton)
 
     def showControls(self):
-        self.page.add(self.starttext_container)
-        self.page.add(self.startbutton_container)
+        self.container.controls.append(self.starttext_container)
+        self.container.controls.append(self.startbutton_container)
     
-    def update(self):
-        self.page.update()
+    def addOnPage(self,page):
+        page.add(self.container)
+        page.update()
 
     def createControls(self):
         self.starttext_container = Column()
         self.startbutton_container = Column()
 
     def __init__(self,page):
-        self.page = page
+        self.container = Column()
+        self.configureControls()
+        self.showControls()
+        self.update()
+ 
